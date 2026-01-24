@@ -44,7 +44,7 @@ names.sort()
 print(names)
 
 #---------------------------4---------------------------#
-# a. 
+# a. Brian has new number 5551212
 
 # Create a dictionary of key:value pairs
 contacts = {"Jenny": 8675309, "James": 5551212}
