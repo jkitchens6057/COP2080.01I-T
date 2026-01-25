@@ -1,84 +1,43 @@
-##
-#  Manage student grades.
-#
-
-# Use a dictionary named 'grades' to track student grades.
-# code here
- 
 grades = {}
 
-run = True
+choice = 'T'
 
-while (run):
+while (choice != 'Q'):
   
   choice = input("(A)dd, (R)emove, (M)odify, (P)rint all, or (Q)uit? ").upper()
 
-  if choice == 'Q':
-    run = False
-  elif choice == 'A':
+  if choice == 'A':
     name = input("Enter the student's name: ")
-    grade = input("Enter the student's grade: ")
-    while not (grade >= 0 and grade <= 100):
-      grade = input("Please enter the grade as a number 0-100: ")
     if name in grades:
-      print("Student already in the system")
+      print("Sorry, that student is already present")
+      continue
+    grade = int(float(input("Enter the student's grade: ")))
+    while not (grade >= 0 and grade <= 100):
+      grade = int(float(input("Please enter the grade as a number 0-100: ")))
+    grades[name] = grade
+  elif choice == 'R':
+    student = input("What student do you want to remove? ")
+    if (student not in grades):
+      print("Sorry, that student doesn't exist and couldn't be removed")
     else:
-      grades[name] = grade
-  #elif choice == 'R':
-    
-  #elif choice == 'M':
-
-  #elif choice == 'P':
-
-  #elif choice == 'Q':
+      grades.pop(student)
+  elif choice == 'M':
+    student = input("Enter the name of the student to modify: ")
+    if (student not in grades):
+      print("Sorry, that students doesn't exist and couldn't be modified")
+      continue
+    print("The old grade is", grades[student])
+    grade = int(float(input("Enter the new grade: ")))
+  elif choice == 'P':
+    avg = 0;
+    for student in grades:
+      avg += grades[student]
+    avg = avg / len(grades)
+    print("The average grade is", avg)
+    for student in grades:
+      print(f"{student}: {grades[student]}")
+  elif choice == 'Q':
+    print("Goodbye!")
 
   else:
     print("Sorry that wasn't a valid choice.")
-
-
-  # Loop until the user chooses to quit.
-  # Check user input for the following "(A)dd, (R)emove, (M)odify, (P)rint all, or (Q)uit? "
-  # Prevent unexected inputs by converting input to upper-case
-  # code here
- 
-
-   # Use a condition to handle adding a new student.
-   # Convert grade into integer
-   # Gather user input for "Enter the name of the student: "
-   # Check if student name already exists "Sorry, that student is already present."
-   # Gather user input for student grade "Enter the student's grade: "
-   # Validate input is in correct format or range, if not notify "Please enter grade as number 0-100"
-   # code here
- 
-
-   # Handle removing a student if user inputs 'R'
-   # Check input for "What student do you want to remove? "
-   # use pop to remove key/value form grades
-   # see notes https://www.programiz.com/python-programming/methods/dictionary/pop
-   # Check if student doesn't exist - "Sorry, that student doesn't exist and couldn't be removed."
-   # code here
- 
-
-   # Handle modifying a student grade if user inputs 'M'
-   # "Enter the name of the student to modify: "
-   # Convert grade into integer
-   # If student is in grades dictionary, show existing grade "The old grade is"
-   # Gather input for new grade "Enter the new grade: "
-   # If student doesn't exist "Sorry, that student doesn't exist and couldn't be modified."
-   # code here
- 
-   # Handle printing grade average as a string if user input is 'P'
-   # Use "The average grade is "
-   # Handle printing all of the student names with associated grade
-   # Display explictly as strings
-   # code here
- 
-      
-
-   # Handle the case for quiting if user inputs 'Q' "Goodbye!"
-   # code here
- 
-
-   # Handle the case of invalid input. "Sorry, that wasn't a valid choice."
-   # code here
- 
