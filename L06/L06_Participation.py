@@ -56,7 +56,7 @@ print(result := [x * -1 for x in a_list if x < 0])
 # list comprehension vs generator expression
 import sys
 a = [x for x in range(1000000)] #list comp
-b = (range(1000000)) #generator expr
+b = (x for x in range(1000000)) #generator expr
 print('list comp byte size is ',sys.getsizeof(a))
 print('generator expression byte size is ',sys.getsizeof(b))
 
