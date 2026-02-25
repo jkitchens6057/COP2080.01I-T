@@ -1,4 +1,4 @@
-'''
+
 filename = input("Enter filename: ")
 try:
     infile = open(filename, "r")
@@ -8,7 +8,7 @@ except IOError :
     print("Error: file not found.")
 except ValueError as exception :
     print("Error:", str(exception))
-'''
+
 
 filename = input("Enter filename: ")
 outfile = open(filename, "w")
@@ -17,3 +17,4 @@ try:
     outfile.write(content_)
 finally:
     outfile.close()
+    
